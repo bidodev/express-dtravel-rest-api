@@ -19,7 +19,7 @@ router.get('/', (req, res, next) => {
   });
 });
 
-//request only 1 id..
+//request only 1 place..
 router.get('/:id', (req, res, next) => {
 
   //find the place with the id requested
@@ -64,5 +64,16 @@ router.post('/', (req, res, next) => {
     }
   );
 });
+
+router.patch('/:id', (req, res, next) => {
+    res.status(200).json({
+        status: 'success',
+        data: {
+            place: `Place ${req.params.id} updated..`
+        }
+
+    })
+
+})
 
 module.exports = router;
