@@ -76,4 +76,13 @@ router.patch('/:id', (req, res, next) => {
 
 })
 
+//delete a place
+router.delete('/:id', (req, res, next) => {
+    res.status(204).json({
+        status: 'success',
+        data: null
+    })
+
+})
+
 module.exports = router;
