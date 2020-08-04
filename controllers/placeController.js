@@ -5,6 +5,15 @@ const places = JSON.parse(
   fs.readFileSync(path.join(__dirname, '..', 'data/places.json'))
 );
 
+exports.checkBody = (req, res, next) => {
+  if (!req.body.productName) {
+    return res
+      .status(400)
+      .json({ status: 'fail', message: 'Missing product name' });
+  }
+  next();
+};
+
 //request all the places
 exports.getAllPlaces = (req, res, next) => {
   res.status(200).json({

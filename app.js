@@ -31,7 +31,7 @@ app.use((req, res, next) => {
 }) 
 
 //routers handler
-app.use('/api/v1', indexRouter);
+app.use('/', indexRouter);
 app.use('/api/v1/users', usersRouter);
 app.use('/api/v1/places', placesRouter)
 
