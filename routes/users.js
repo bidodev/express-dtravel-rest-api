@@ -1,17 +1,17 @@
 const express = require('express');
 const router = express.Router();
 
-/* GET users listing. */
-const getAllUsers = (req, res, next) => {
-  res.status(200).json({ status: "success", method: 'GET' });
-};
-
-const createUser = (req, res, next) => {
-  //201 stand for creating a new resource
-  res.status(201).json({ status: "success", method: 'POST' });
-};
+//import our functions
+const {
+  getAllUsers,
+  createUser,
+  getUser,
+  updateUser,
+  deleteUser,
+} = require('../controllers/userController');
 
 //users route
 router.route('/').get(getAllUsers).post(createUser);
+router.route('/:id').get(getUser).patch(updateUser).delete(deleteUser);
 
 module.exports = router;

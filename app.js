@@ -31,9 +31,9 @@ app.use((req, res, next) => {
 }) 
 
 //routers handler
-app.use('/', indexRouter);
-app.use('/users', usersRouter);
-app.use('/places', placesRouter)
+app.use('/api/v1', indexRouter);
+app.use('/api/v1/users', usersRouter);
+app.use('/api/v1/places', placesRouter)
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
@@ -50,7 +50,5 @@ app.use(function(err, req, res, next) {
   res.status(err.status || 500);
   res.render('error');
 });
-
-
 
 module.exports = app;
