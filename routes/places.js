@@ -21,16 +21,15 @@ router.get('/', (req, res, next) => {
 
 //request only 1 place..
 router.get('/:id', (req, res, next) => {
-
   //find the place with the id requested
   //the value which came from req.param is a string, and the value we have inside places.json is an int
-  const place = places.find((el) => (el.id === parseInt(req.params.id)));
+  const place = places.find((el) => el.id === parseInt(req.params.id));
 
   //if place not found return status 404 (not found)
   if (!place) {
     return res.status(404).json({
-        status: 'fail',
-        message: 'The given id could not be found'
+      status: 'fail',
+      message: 'The given id could not be found',
     });
   }
 
@@ -66,23 +65,20 @@ router.post('/', (req, res, next) => {
 });
 
 router.patch('/:id', (req, res, next) => {
-    res.status(200).json({
-        status: 'success',
-        data: {
-            place: `Place ${req.params.id} updated..`
-        }
-
-    })
-
-})
+  res.status(200).json({
+    status: 'success',
+    data: {
+      place: `Place ${req.params.id} updated..`,
+    },
+  });
+});
 
 //delete a place
 router.delete('/:id', (req, res, next) => {
-    res.status(204).json({
-        status: 'success',
-        data: null
-    })
-
-})
+  res.status(204).json({
+    status: 'success',
+    data: null,
+  });
+});
 
 module.exports = router;

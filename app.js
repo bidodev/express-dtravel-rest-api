@@ -4,6 +4,7 @@ const path = require('path');
 const cookieParser = require('cookie-parser');
 const logger = require('morgan');
 
+//load our routers
 const indexRouter = require('./routes/index');
 const usersRouter = require('./routes/users');
 const placesRouter = require('./routes/places')
@@ -14,7 +15,9 @@ const app = express();
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'pug');
 
+//morgan logger
 app.use(logger('dev'));
+
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
@@ -23,9 +26,11 @@ app.use(express.static(path.join(__dirname, 'public')));
 //midlewares
 app.use((req, res, next) => {
   console.log("Hello from the Middleware")
+  //req.requestTime = new Date().toISOString();
   next();
 }) 
 
+//routers handler
 app.use('/', indexRouter);
 app.use('/users', usersRouter);
 app.use('/places', placesRouter)
