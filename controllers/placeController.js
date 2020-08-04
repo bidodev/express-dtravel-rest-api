@@ -30,8 +30,8 @@ exports.createPlace = (req, res, next) => {
   //generate a new id
   const lastId = places[places.length - 1].id;
   const newId = lastId + 1;
-
-  const newPlace = Object.assign({ id: newId }, req.body);
+  // eslint-disable-next-line node/no-unsupported-features/es-syntax
+  const newPlace = { id: newId, ...req.body };
   places.push(newPlace);
 
   fs.writeFile(
