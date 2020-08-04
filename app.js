@@ -20,6 +20,12 @@ app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
+//midlewares
+app.use((req, res, next) => {
+  console.log("Hello from the Middleware")
+  next();
+}) 
+
 app.use('/', indexRouter);
 app.use('/users', usersRouter);
 app.use('/places', placesRouter)
@@ -39,5 +45,7 @@ app.use(function(err, req, res, next) {
   res.status(err.status || 500);
   res.render('error');
 });
+
+
 
 module.exports = app;
