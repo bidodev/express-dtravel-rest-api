@@ -1,10 +1,6 @@
-const fs = require('fs');
-const path = require('path');
+const Place = require('../models/placeModel');
 
-const places = JSON.parse(
-  fs.readFileSync(path.join(__dirname, '..', 'data/places.json'))
-);
-
+//midlewares
 exports.checkBody = (req, res, next) => {
   if (!req.body.productName) {
     return res
@@ -33,20 +29,6 @@ exports.createPlace = (req, res, next) => {
   // eslint-disable-next-line node/no-unsupported-features/es-syntax
   const newPlace = { id: newId, ...req.body };
   places.push(newPlace);
-
-  fs.writeFile(
-    path.join(__dirname, '..', 'data/places.json'),
-    JSON.stringify(places),
-    (err) => {
-      //201 stand for creating a new resource
-      res.status(201).json({
-        status: 'success',
-        data: {
-          places: newPlace,
-        },
-      });
-    }
-  );
 };
 
 //request only 1 place..
