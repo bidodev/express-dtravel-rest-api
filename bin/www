@@ -22,9 +22,26 @@ mongoose
     useUnifiedTopology: true,
     useFindAndModify: false,
   })
-  .then((con) => {
-    console.log(con.connections);
-  });
+  .then(() => console.log('DB connection successful!'))
+  .catch((err) => console.log(err.message));
+
+const placeSchema = new mongoose.Schema({
+  productName: {
+    type: String,
+    required: [true, 'The product name is required'],
+    unique: true,
+  },
+  description: String,
+  country: String,
+  continent: String,
+  type: String,
+  difficulty: String,
+  prices: String,
+  cover: Object,
+  extraImgs: Array,
+});
+
+const Place = mongoose.model('Place', placeSchema)
 
 /**
  * Get port from environment and store in Express.
