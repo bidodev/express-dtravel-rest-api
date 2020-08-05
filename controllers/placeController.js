@@ -1,15 +1,5 @@
 const Place = require('../models/placeModel');
 
-//midlewares
-exports.checkBody = (req, res, next) => {
-  if (!req.body.productName) {
-    return res
-      .status(400)
-      .json({ status: 'fail', message: 'Missing product name' });
-  }
-  next();
-};
-
 //request all the places
 exports.getAllPlaces = (req, res, next) => {
   res.status(200).json({
@@ -22,13 +12,19 @@ exports.getAllPlaces = (req, res, next) => {
 };
 
 //create a new place..
-exports.createPlace = (req, res, next) => {
-  //generate a new id
-  const lastId = places[places.length - 1].id;
-  const newId = lastId + 1;
-  // eslint-disable-next-line node/no-unsupported-features/es-syntax
-  const newPlace = { id: newId, ...req.body };
-  places.push(newPlace);
+exports.createPlace = async (req, res) => {
+  try {
+    const newPlace = await Place.create(req.body);
+
+    res.status(201).json({
+      status: 'success',
+      data: {
+        place: newPlace,
+      },
+    });
+  } catch (err) {
+    res.status(400).json({ status: 'fail', message: err.message });
+  }
 };
 
 //request only 1 place..
