@@ -1,7 +1,9 @@
 const Place = require('../models/placeModel');
 
 //request all the places
-exports.getAllPlaces = (req, res, next) => {
+exports.getAllPlaces = async (req, res) => {
+  const places = await Place.find();
+
   res.status(200).json({
     status: 'success',
     results: places.length,
