@@ -9,7 +9,10 @@ const placeSchema = new mongoose.Schema({
     required: [true, 'The product name is required'],
     unique: true,
   },
-  description: String,
+  description: {
+    type: String,
+    required: [true, 'The description is required'],
+  },
   country: String,
 });
 
