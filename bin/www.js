@@ -1,14 +1,30 @@
 /**
  * Module dependencies.
  */
+const mongoose = require('mongoose');
 const dotenv = require('dotenv');
 const http = require('http');
 
 dotenv.config({
   path: './config.env',
 });
-
 const app = require('../app');
+
+//loading variables and creating LINK
+const { HOST, DATABASE } = process.env;
+const LINK = `${HOST}/${DATABASE}`;
+
+//connecting
+mongoose
+  .connect(LINK, {
+    useNewUrlParser: true,
+    useCreateIndex: true,
+    useUnifiedTopology: true,
+    useFindAndModify: false,
+  })
+  .then((con) => {
+    console.log(con.connections);
+  });
 
 /**
  * Get port from environment and store in Express.

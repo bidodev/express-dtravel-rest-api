@@ -53,7 +53,7 @@ exports.createPlace = (req, res, next) => {
 exports.getPlace = (req, res, next) => {
   //find the place with the id requested
   //the value which came from req.param is a string, and the value we have inside places.json is an int
-  const place = places.find((el) => el.id === parseInt(req.params.id));
+  const place = places.find((el) => el.id === Number(req.params.id));
 
   //if place not found return status 404 (not found)
   if (!place) {
