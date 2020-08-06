@@ -2,8 +2,14 @@ const Place = require('../models/placeModel');
 
 //query for all the places
 exports.getAllPlaces = async (req, res) => {
+  const queryObj = { ...req.query };
+  const excludeFields = ['page', 'sort', 'limit', 'fields'];
+
+  excludeFields.forEach((el) => delete queryObj[el]);
+  //console.log(req.query, queryObj);
+
   try {
-    const places = await Place.find();
+    const places = await Place.find(queryObj);
 
     res.status(200).json({
       status: 'success',
