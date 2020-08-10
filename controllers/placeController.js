@@ -1,5 +1,13 @@
 const Place = require('../models/placeModel');
 
+class APIFeatures {
+  constructor(query, queryString) {
+    this.query = query;
+    this.queryString = queryString;
+  }
+
+  pagination() {}
+}
 //query for all the places
 exports.getAllPlaces = async (req, res) => {
   try {
@@ -96,6 +104,37 @@ exports.deletePlace = async (req, res) => {
     res.status(204).json({
       status: 'success',
       data: null,
+    });
+  } catch (err) {
+    res.status(404).json({
+      status: 'fail',
+      data: err.message,
+    });
+  }
+};
+
+exports.getPlacesStats = async (req, res) => {
+  try {
+    const stats = await Place.aggregate([
+      {
+        $match: { ratingsAverange: { $gte: 4.5 } },
+      },
+      {
+        $group: {
+          _id: null,
+          avgRating: { $avg: '$ratingsAverage' },
+          avgPrice: { $avg: '$price' },
+          minPrice: { $min: '$price' },
+          maxPrice: { $max: '$price' },
+        },
+      },
+    ]);
+
+    res.status(200).json({
+      status: 'success',
+      data: {
+        stats,
+      },
     });
   } catch (err) {
     res.status(404).json({
