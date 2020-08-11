@@ -53,6 +53,9 @@ POST | Create an unique place | /api/v1/places
 
 In the project directory, you can run:
 
+### `yarn install`
+Install all the required packages.
+
 ### `yarn start:dev`
 
 Runs the app in the development mode.<br />
