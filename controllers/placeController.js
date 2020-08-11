@@ -1,13 +1,6 @@
 const Place = require('../models/placeModel');
+const AppError = require('../utils/appError');
 
-class APIFeatures {
-  constructor(query, queryString) {
-    this.query = query;
-    this.queryString = queryString;
-  }
-
-  pagination() {}
-}
 //query for all the places
 exports.getAllPlaces = async (req, res) => {
   try {
@@ -61,10 +54,20 @@ exports.createPlace = async (req, res) => {
 };
 
 //request only 1 place..
-exports.getPlace = async (req, res) => {
+exports.getPlace = async (req, res, next) => {
   try {
     const place = await Place.findById(req.params.id);
 
+    //if there is no place we return from this function, otherwise we will send 2 response ang get an error
+    if (!place) {
+      return next(
+        new AppError(
+          `Can't find id ${req.params.id} on the database.`,
+          404,
+          'fail'
+        )
+      );
+    }
     res.status(200).json({
       status: 'success',
       data: {
@@ -80,12 +83,22 @@ exports.getPlace = async (req, res) => {
 };
 
 //update a place
-exports.updatePlace = async (req, res) => {
+exports.updatePlace = async (req, res, next) => {
   try {
     const place = await Place.findByIdAndUpdate(req.params.id, req.body, {
       new: true,
       runValidators: true,
     });
+
+    if (!place) {
+      return next(
+        new AppError(
+          `Can't find id ${req.params.id} on the database.`,
+          404,
+          'fail'
+        )
+      );
+    }
     res.status(200).json({
       status: 'success',
       data: {
@@ -98,9 +111,19 @@ exports.updatePlace = async (req, res) => {
 };
 
 //delete a place
-exports.deletePlace = async (req, res) => {
+exports.deletePlace = async (req, res, next) => {
   try {
-    await Place.findByIdAndDelete(req.params.id);
+    const place = await Place.findByIdAndDelete(req.params.id);
+
+    if (!place) {
+      return next(
+        new AppError(
+          `Can't find id ${req.params.id} on the database.`,
+          404,
+          'fail'
+        )
+      );
+    }
     res.status(204).json({
       status: 'success',
       data: null,
