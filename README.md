@@ -17,7 +17,8 @@ POST | Create an unique place | /api/v1/places
 ## Pagination
 **/api/v1/places?page=1&limit=5**
 
-###Creating an new Place using Postman
+### Creating an new Place using Postman
+
 **localhost:8000/api/v1/places**
 
 *JSON Body*
