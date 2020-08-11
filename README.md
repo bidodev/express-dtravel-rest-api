@@ -1,29 +1,30 @@
 ## Endpoints
 
 ### Get all the Places
-method: GET
+**method**: GET
 
 host:port/api/v1/places
 
 ### Update a place
-method: PATCH
+**method**: PATCH
 
 host:port/api/v1/places/id
 
 ### Get a unique place
-method: GET
+**method**: GET
 
 host:port/api/v1/places/id
 
 ### Delete a unique place
-method: DELETE
+**method**: DELETE
 
 host:port/api/v1/places/id
 
 ### Create a place
-method: POST
+**method**: POST
 
 host:port/api/v1/places
+
 JSON body example
 
 ```javascript
