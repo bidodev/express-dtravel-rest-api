@@ -71,7 +71,7 @@ Start the API in debugger mode using [ndb](https://github.com/GoogleChromeLabs/n
 
 
 ## 🚀 Technologies used
-<img title="Express 4" src="https://uploads.toptal.io/blog/category/logo/25/express_js.png" width="48" /> <img title="JasonWebToken" src="https://werkraum.net/fileadmin/news_import/jwt_pic_logo.svg.png" width="48" /> <img title="MongoDB" src="https://www.clouda.ca/wp-content/uploads/2013/03/mongodb-logo.png" width="48" /> <img title="Node.js 12" src="https://ih1.redbubble.net/image.109336634.1604/flat,550x550,075,f.u1.jpg" width="48" />
+<img title="Express 4" src="https://uploads.toptal.io/blog/category/logo/25/express_js.png" width="72" /> <img title="JasonWebToken" src="https://werkraum.net/fileadmin/news_import/jwt_pic_logo.svg.png" width="72" /> <img title="MongoDB" src="https://www.clouda.ca/wp-content/uploads/2013/03/mongodb-logo.png" width="72" /> <img title="Node.js 12" src="https://ih1.redbubble.net/image.109336634.1604/flat,550x550,075,f.u1.jpg" width="72" />
 
 ## Contact
 Created by [Claudinei Bido](https://www.linkedin.com/in/bidoc/) - feel free to contact me!
