@@ -1,3 +1,7 @@
+## About: 
+- This REST API was built during **DCI's WEB Development Course**, which We attended between 2019 - 2021.
+- This API is beeing used for the [Dtravel Client](https://github.com/bidodev/react-dtravel-client) 
+
 ## Endpoints
 
 Method | Desc | Endpoint
