@@ -6,6 +6,12 @@ const mongoose = require('mongoose');
 const dotenv = require('dotenv');
 const http = require('http');
 
+process.on('uncaughtException', (err) => {
+  console.error('Uncaught Exception');
+  console.log(err.name, err.message);
+  process.exit(1);
+});
+
 dotenv.config({
   path: './config.env',
 });
@@ -81,3 +87,12 @@ function onListening() {
 server.listen(port);
 server.on('error', onError);
 server.on('listening', onListening);
+
+process.on('unhandledRejection', (err) => {
+  console.log(err.name, err.message);
+  console.error('Unhandled Rejection');
+  server.close(() => {
+    process.exit(1);
+  });
+});
+

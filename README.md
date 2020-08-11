@@ -53,7 +53,7 @@ POST | Create an unique place | /api/v1/places
 
 In the project directory, you can run:
 
-### `yarn start:dev"`
+### `yarn start:dev`
 
 Runs the app in the development mode.<br />
 Open [http://localhost:8000](http://localhost:8000) to view it in the browser.
