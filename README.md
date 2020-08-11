@@ -1,9 +1,4 @@
 ## Endpoints
-### URL to Request
-
-host:port/api/v1/
-
-> Default port 8000
 
 Method | Desc | Endpoint
 ------------ | -------------| -------------
