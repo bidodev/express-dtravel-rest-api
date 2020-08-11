@@ -6,17 +6,12 @@ host:port/api/v1/
 > Default port 8000
 
 Method | Desc | Endpoint
------------- | -------------
+------------ | -------------| -------------
 GET | Get all the places | /api/v1/places
 GET | Get an unique place | /api/v1/places/id
 PATCH | Update an unique place | /api/v1/places/id
 DELETE | Delete an unique place | /api/v1/places/id
 POST | Create an unique place | /api/v1/places
-
-First Header | Second Header
------------- | -------------
-Content from cell 1 | Content from cell 2
-Content in the first column | Content in the second column
 
 
 ## Pagination
