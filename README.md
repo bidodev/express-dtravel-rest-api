@@ -13,6 +13,11 @@ PATCH | Update an unique place | /api/v1/places/id
 DELETE | Delete an unique place | /api/v1/places/id
 POST | Create an unique place | /api/v1/places
 
+First Header | Second Header
+------------ | -------------
+Content from cell 1 | Content from cell 2
+Content in the first column | Content in the second column
+
 
 ## Pagination
 **/api/v1/places?page=1&limit=5**
