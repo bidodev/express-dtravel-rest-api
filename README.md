@@ -1,29 +1,21 @@
 ## Endpoints
+### URL to Request
 
-### Get all the Places
-**method**: GET
+host:port/api/v1/
 
-host:port/api/v1/places
+> Default port 8000
 
-### Update a place
-**method**: PATCH
+Method | Desc | Endpoint
+------------ | -------------
+GET | Get all the places | /api/v1/places
+GET | Get an unique place | /api/v1/places/id
+PATCH | Update an unique place | /api/v1/places/id
+DELETE | Delete an unique place | /api/v1/places/id
+POST | Create an unique place | /api/v1/places
 
-host:port/api/v1/places/id
 
-### Get a unique place
-**method**: GET
-
-host:port/api/v1/places/id
-
-### Delete a unique place
-**method**: DELETE
-
-host:port/api/v1/places/id
-
-### Create a place
-**method**: POST
-
-host:port/api/v1/places
+## Pagination
+**/api/v1/places?page=1&limit=5**
 
 JSON body example
 
