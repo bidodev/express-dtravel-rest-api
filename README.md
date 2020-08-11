@@ -1,31 +1,22 @@
 ## Endpoints
 
-### Get all the Places
-**method**: GET
+Method | Desc | Endpoint
+------------ | -------------| -------------
+GET | Get all the places | /api/v1/places
+GET | Get an unique place | /api/v1/places/id
+PATCH | Update an unique place | /api/v1/places/id
+DELETE | Delete an unique place | /api/v1/places/id
+POST | Create an unique place | /api/v1/places
 
-host:port/api/v1/places
 
-### Update a place
-**method**: PATCH
+## Pagination
+**/api/v1/places?page=1&limit=5**
 
-host:port/api/v1/places/id
+### Creating an new Place using Postman
 
-### Get a unique place
-**method**: GET
+**localhost:8000/api/v1/places**
 
-host:port/api/v1/places/id
-
-### Delete a unique place
-**method**: DELETE
-
-host:port/api/v1/places/id
-
-### Create a place
-**method**: POST
-
-host:port/api/v1/places
-
-JSON body example
+*JSON Body*
 
 ```javascript
 {
