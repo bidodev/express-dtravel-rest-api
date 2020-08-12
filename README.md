@@ -54,15 +54,15 @@ _JSON Body_
   }
 ```
 
-### /api/v1/auth
+### /api/v1/users
 
-| Method | Desc              | Endpoint     |
-| ------ | ----------------- | ------------ |
-| POST   | Create a new User | /api/v1/auth |
+| Method | Desc              | Endpoint             |
+| ------ | ----------------- | -------------------- |
+| POST   | Signup with a User | /api/v1/users/signup |
 
 ### Creating a new user using Postman
 
-**localhost:8000/api/v1/auth**
+**localhost:8000/api/v1/users/signup**
 
 _JSON Body_
 
@@ -76,6 +76,7 @@ _JSON Body_
 ```
 
 ## Filters
+
 ### Pagination
 
 **/api/v1/places?page=1&limit=5**

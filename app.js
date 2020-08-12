@@ -10,7 +10,6 @@ const errorHandler = require('./controllers/errorController');
 const indexRouter = require('./routes/index');
 const usersRouter = require('./routes/users');
 const placesRouter = require('./routes/places');
-const authRouter = require('./routes/auth');
 
 const app = express();
 
@@ -27,7 +26,6 @@ app.use(cookieParser());
 app.use('/', indexRouter);
 app.use('/api/v1/users', usersRouter);
 app.use('/api/v1/places', placesRouter);
-app.use('/api/v1/auth', authRouter);
 
 //handling operational errors
 app.all('*', (req, res, next) => {
