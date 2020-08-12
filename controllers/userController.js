@@ -1,3 +1,5 @@
+const User = require('../models/userModel');
+
 /* GET users listing. */
 exports.getAllUsers = (req, res, next) => {
   res
