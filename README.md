@@ -1,28 +1,28 @@
 # Dtravel REST API
-## About: 
+
+## About:
+
 This REST API was built during **DCI's WEB Development Course**, which We attended between 2019 - 2021.
 
-This API is beeing used for the [Dtravel Client](https://github.com/bidodev/react-dtravel-client) 
+This API is beeing used for the [Dtravel Client](https://github.com/bidodev/react-dtravel-client)
 
 ## Endpoints
 
-Method | Desc | Endpoint
------------- | -------------| -------------
-GET | Get all the places | /api/v1/places
-GET | Get an unique place | /api/v1/places/id
-PATCH | Update an unique place | /api/v1/places/id
-DELETE | Delete an unique place | /api/v1/places/id
-POST | Create an unique place | /api/v1/places
+### /api/v1/places
 
-
-## Pagination
-**/api/v1/places?page=1&limit=5**
+| Method | Desc                   | Endpoint          |
+| ------ | ---------------------- | ----------------- |
+| GET    | Get all the places     | /api/v1/places    |
+| GET    | Get an unique place    | /api/v1/places/id |
+| PATCH  | Update an unique place | /api/v1/places/id |
+| DELETE | Delete an unique place | /api/v1/places/id |
+| POST   | Create an unique place | /api/v1/places    |
 
 ### Creating an new Place using Postman
 
 **localhost:8000/api/v1/places**
 
-*JSON Body*
+_JSON Body_
 
 ```javascript
 {
@@ -54,12 +54,38 @@ POST | Create an unique place | /api/v1/places
   }
 ```
 
+### /api/v1/auth
+
+| Method | Desc              | Endpoint     |
+| ------ | ----------------- | ------------ |
+| POST   | Create a new User | /api/v1/auth |
+
+### Creating a new user using Postman
+
+**localhost:8000/api/v1/auth**
+
+_JSON Body_
+
+```javascript
+    {
+    "name": "Claudinei Bido",
+    "email": "claudinei.bido@gmail.com",
+    "password": "mypassword",
+    "passwordConfirm": "mypassword"
+}
+```
+
+## Filters
+### Pagination
+
+**/api/v1/places?page=1&limit=5**
 
 ## Available Scripts
 
 In the project directory, you can run:
 
 ### `yarn install`
+
 Install all the required packages.
 
 ### `yarn start:dev`
@@ -75,9 +101,10 @@ Start the API in production mode, all the loggers will be disabled<br />
 
 Start the API in debugger mode using [ndb](https://github.com/GoogleChromeLabs/ndb) debugger <br />
 
-
 ## 🚀 Technologies used
+
 <img title="Express 4" src="https://uploads.toptal.io/blog/category/logo/25/express_js.png" width="72" /> <img title="JasonWebToken" src="https://werkraum.net/fileadmin/news_import/jwt_pic_logo.svg.png" width="72" /> <img title="MongoDB" src="https://www.clouda.ca/wp-content/uploads/2013/03/mongodb-logo.png" width="72" /> <img title="Node.js 12" src="https://ih1.redbubble.net/image.109336634.1604/flat,550x550,075,f.u1.jpg" width="72" />
 
 ## Contact
+
 Created by [Claudinei Bido](https://www.linkedin.com/in/bidoc/) - feel free to contact me!
