@@ -15,10 +15,12 @@
     "http-errors": "~1.8.0",
     "mongoose": "^5.9.27",
     "morgan": "~1.10.0",
-    "pug": "3.0.0"
+    "pug": "3.0.0",
+    "validator": "^13.1.1"
   },
   "devDependencies": {
     "eslint": "^7.6.0",
+    "eslint-plugin-react-hooks": "^4.0.8",
     "eslint-config-airbnb": "^18.2.0",
     "eslint-config-prettier": "^6.11.0",
     "eslint-plugin-import": "^2.22.0",
