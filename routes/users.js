@@ -11,10 +11,11 @@ const {
   deleteUser,
 } = require('../controllers/userController');
 
-const { signup } = require('../controllers/authController');
+const { signup, login } = require('../controllers/authController');
 
 //auth route
 router.route('/signup').post(signup);
+router.route('/login').post(login);
 
 //users route
 router.route('/').get(getAllUsers).post(createUser);
