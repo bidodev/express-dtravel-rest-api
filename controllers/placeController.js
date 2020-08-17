@@ -49,7 +49,7 @@ exports.createPlace = async (req, res) => {
       },
     });
   } catch (err) {
-    res.status(404).json({ status: 'fail', message: err.message });
+    res.status(400).json({ status: 'fail', message: err.message });
   }
 };
 
